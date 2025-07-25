@@ -1,0 +1,760 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Microsoft Office Authentic Colors */
+    --powerpoint-orange: 16 100% 43%; /* #D83B01 */
+    --powerpoint-blue: 207 100% 42%; /* #0078D4 */
+    --powerpoint-gray-25: 0 0% 98%; /* #FAFAFA */
+    --powerpoint-gray-50: 220 14% 96%; /* #F3F2F1 */
+    --powerpoint-gray-100: 220 13% 91%; /* #EDEBE9 */
+    --powerpoint-gray-150: 220 9% 86%; /* #E1DFDD */
+    --powerpoint-gray-200: 225 10% 84%; /* #D2D0CE */
+    --powerpoint-gray-250: 210 11% 79%; /* #C8C6C4 */
+    --powerpoint-gray-300: 210 11% 71%; /* #A19F9D */
+    --powerpoint-gray-400: 210 9% 53%; /* #8A8886 */
+    --powerpoint-gray-500: 210 10% 40%; /* #605E5C */
+    --powerpoint-gray-600: 210 25% 25%; /* #323130 */
+    --powerpoint-gray-700: 210 29% 24%; /* #201F1E */
+    --powerpoint-gray-800: 210 29% 24%; /* #201F1E */
+    
+    /* ShadCN Variables */
+    --background: 0 0% 100%;
+    --foreground: 210 25% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 25% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 25% 25%;
+    --primary: 16 100% 43%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 210 25% 25%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 210 10% 40%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 210 25% 25%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 225 10% 84%;
+    --input: 225 10% 84%;
+    --ring: 16 100% 43%;
+    --radius: 0.125rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .font-segoe {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  /* Authentic Microsoft Office Title Bar */
+  .powerpoint-title-bar {
+    background: linear-gradient(to bottom, #D83B01 0%, #C73401 100%);
+    height: 30px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    user-select: none;
+  }
+  
+  /* Authentic Quick Access Toolbar */
+  .powerpoint-qat {
+    background-color: #F3F2F1;
+    border-bottom: 1px solid #D2D0CE;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    gap: 2px;
+  }
+  
+  .powerpoint-qat-button {
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: transparent;
+    color: #323130;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  
+  .powerpoint-qat-button:hover {
+    background-color: #EDEBE9;
+    border-color: #C8C6C4;
+  }
+  
+  .powerpoint-qat-button:active {
+    background-color: #E1DFDD;
+    border-color: #8A8886;
+  }
+  
+  .powerpoint-qat-button:disabled {
+    color: #A19F9D;
+    cursor: not-allowed;
+  }
+  
+  .powerpoint-qat-button:disabled:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  /* Authentic Ribbon Tabs */
+  .powerpoint-ribbon-tabs {
+    background-color: #F3F2F1;
+    border-bottom: 1px solid #D2D0CE;
+    display: flex;
+    align-items: end;
+    padding: 0 8px;
+    height: 32px;
+  }
+  
+  .powerpoint-ribbon-tab {
+    padding: 6px 12px 4px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #323130;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px 2px 0 0;
+    margin-bottom: -1px;
+  }
+  
+  .powerpoint-ribbon-tab:hover {
+    background-color: #EDEBE9;
+  }
+  
+  .powerpoint-ribbon-tab[data-state="active"] {
+    background-color: #FFF;
+    border-bottom: 2px solid #D83B01;
+    color: #323130;
+    font-weight: 400;
+  }
+  
+  /* Authentic Ribbon Content */
+  .powerpoint-ribbon {
+    background-color: #F3F2F1;
+    border-bottom: 1px solid #D2D0CE;
+    min-height: 92px;
+  }
+  
+  .powerpoint-ribbon-content {
+    background-color: #F3F2F1;
+    padding: 4px 8px 8px;
+    min-height: 68px;
+    display: flex;
+    align-items: start;
+    gap: 8px;
+  }
+  
+  /* Authentic Toolbar Groups */
+  .powerpoint-toolbar-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .powerpoint-group-label {
+    color: #605E5C;
+    font-size: 11px;
+    font-weight: 400;
+    margin-bottom: 2px;
+    text-align: left;
+    line-height: 1.2;
+  }
+  
+  .powerpoint-group-buttons {
+    display: flex;
+    gap: 2px;
+    align-items: start;
+  }
+  
+  .powerpoint-group-separator {
+    width: 1px;
+    background-color: #D2D0CE;
+    margin: 8px 0;
+    height: 48px;
+    flex-shrink: 0;
+  }
+  
+  /* Authentic Toolbar Buttons */
+  .powerpoint-toolbar-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 6px 2px;
+    min-height: 64px;
+    min-width: 48px;
+    max-width: 72px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: transparent;
+    color: #323130;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  
+  .powerpoint-toolbar-button:hover {
+    background-color: #EDEBE9;
+    border-color: #C8C6C4;
+  }
+  
+  .powerpoint-toolbar-button:active {
+    background-color: #E1DFDD;
+    border-color: #8A8886;
+  }
+  
+  .powerpoint-toolbar-button.active {
+    background-color: #DEECF9;
+    border-color: #0078D4;
+    color: #106EBE;
+  }
+  
+  .powerpoint-toolbar-button span {
+    margin-top: 2px;
+    font-size: 11px;
+    line-height: 1.1;
+    text-align: center;
+    max-width: 60px;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Small toolbar buttons */
+  .powerpoint-toolbar-button-small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 4px;
+    min-height: 20px;
+    min-width: 20px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: transparent;
+    color: #323130;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  
+  .powerpoint-toolbar-button-small:hover {
+    background-color: #EDEBE9;
+    border-color: #C8C6C4;
+  }
+  
+  /* Slide Thumbnails Panel */
+  .powerpoint-thumbnails-panel {
+    width: 240px;
+    background-color: white;
+    border-right: 1px solid #D2D0CE;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .powerpoint-thumbnails-header {
+    padding: 8px;
+    border-bottom: 1px solid #D2D0CE;
+    background-color: #F3F2F1;
+  }
+  
+  .powerpoint-thumbnails-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  /* Authentic Slide Thumbnails */
+  .powerpoint-slide-thumbnail {
+    width: 100%;
+    height: 72px;
+    background-color: white;
+    border: 1px solid #D2D0CE;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .powerpoint-slide-thumbnail:hover {
+    border-color: #0078D4;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 12%);
+  }
+  
+  .powerpoint-slide-thumbnail.active {
+    border: 2px solid #D83B01;
+    box-shadow: 0 2px 6px rgb(216 59 1 / 20%);
+  }
+  
+  .powerpoint-slide-thumbnail-content {
+    flex: 1;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .powerpoint-slide-number {
+    font-size: 10px;
+    font-weight: 600;
+    color: #605E5C;
+    margin-bottom: 2px;
+  }
+  
+  .powerpoint-slide-title {
+    font-size: 10px;
+    color: #323130;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Canvas Area */
+  .powerpoint-canvas-area {
+    flex: 1;
+    background-color: #F3F2F1;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgb(0 0 0 / 15%) 1px, transparent 0);
+    background-size: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: auto;
+  }
+  
+  /* Slide Canvas */
+  .powerpoint-slide-canvas {
+    background-color: white;
+    box-shadow: 
+      0 2px 8px rgb(0 0 0 / 15%),
+      0 0 0 1px rgb(0 0 0 / 8%);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Grid Overlay */
+  .powerpoint-grid-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 20%;
+    pointer-events: none;
+    background-image: 
+      linear-gradient(rgb(0 0 0 / 10%) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(0 0 0 / 10%) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  /* Selection Handles */
+  .powerpoint-selection-handle {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border: 1px solid #0078D4;
+    border-radius: 1px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  /* Element Selection Border */
+  .powerpoint-element-selected {
+    border: 2px solid #0078D4 !important;
+  }
+  
+  .powerpoint-element-hover {
+    border: 2px solid rgb(0 120 212 / 30%) !important;
+  }
+  
+  /* Notes Panel */
+  .powerpoint-notes-panel {
+    background-color: white;
+    border-top: 1px solid #D2D0CE;
+    padding: 12px;
+  }
+  
+  .powerpoint-notes-label {
+    color: #605E5C;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .powerpoint-notes-textarea {
+    width: 100%;
+    border: 1px solid #D2D0CE;
+    border-radius: 2px;
+    padding: 6px 8px;
+    font-size: 11px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #323130;
+    background-color: white;
+    resize: none;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  
+  .powerpoint-notes-textarea:focus {
+    border-color: #0078D4;
+    box-shadow: 0 0 0 1px #0078D4;
+  }
+  
+  .powerpoint-notes-textarea::placeholder {
+    color: #A19F9D;
+  }
+  
+  /* Status Bar */
+  .powerpoint-status-bar {
+    background-color: #F3F2F1;
+    border-top: 1px solid #D2D0CE;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    color: #605E5C;
+    font-size: 11px;
+  }
+  
+  .powerpoint-status-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .powerpoint-status-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Zoom Controls */
+  .powerpoint-zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .powerpoint-zoom-button {
+    width: 16px;
+    height: 16px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: transparent;
+    color: #605E5C;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+  
+  .powerpoint-zoom-button:hover {
+    background-color: #EDEBE9;
+    border-color: #C8C6C4;
+  }
+  
+  .powerpoint-zoom-slider {
+    width: 80px;
+    height: 16px;
+  }
+  
+  /* Dropdown Menus */
+  .powerpoint-dropdown {
+    background-color: white;
+    border: 1px solid #D2D0CE;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    padding: 4px 0;
+    min-width: 120px;
+  }
+  
+  .powerpoint-dropdown-item {
+    padding: 6px 12px;
+    color: #323130;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.15s ease;
+  }
+  
+  .powerpoint-dropdown-item:hover {
+    background-color: #F3F2F1;
+  }
+  
+  .powerpoint-dropdown-separator {
+    height: 1px;
+    background-color: #D2D0CE;
+    margin: 4px 0;
+  }
+  
+  /* Context Menus */
+  .powerpoint-context-menu {
+    background-color: white;
+    border: 1px solid #D2D0CE;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    padding: 4px 0;
+    min-width: 140px;
+  }
+  
+  .powerpoint-context-menu-item {
+    padding: 6px 12px;
+    color: #323130;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.15s ease;
+  }
+  
+  .powerpoint-context-menu-item:hover {
+    background-color: #F3F2F1;
+  }
+  
+  .powerpoint-context-menu-item.destructive {
+    color: #D13438;
+  }
+  
+  .powerpoint-context-menu-item.destructive:hover {
+    background-color: #FDF2F2;
+  }
+  
+  .powerpoint-context-menu-item:disabled {
+    color: #A19F9D;
+    cursor: not-allowed;
+  }
+  
+  .powerpoint-context-menu-item:disabled:hover {
+    background-color: transparent;
+  }
+  
+  /* Form Controls */
+  .powerpoint-input {
+    border: 1px solid #D2D0CE;
+    border-radius: 2px;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: white;
+    color: #323130;
+    outline: none;
+    transition: all 0.15s ease;
+  }
+  
+  .powerpoint-input:focus {
+    border-color: #0078D4;
+    box-shadow: 0 0 0 1px #0078D4;
+  }
+  
+  .powerpoint-select {
+    border: 1px solid #D2D0CE;
+    border-radius: 2px;
+    background-color: white;
+    color: #323130;
+    font-size: 11px;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2px 20px 2px 6px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23605E5C' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 4px center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+  }
+  
+  .powerpoint-select:focus {
+    border-color: #0078D4;
+    box-shadow: 0 0 0 1px #0078D4;
+  }
+  
+  /* Presentation Mode */
+  .powerpoint-presentation-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .powerpoint-presentation-slide {
+    background-color: white;
+    box-shadow: 0 8px 32px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+  }
+  
+  .powerpoint-presentation-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(0 0 0 / 80%);
+    border-radius: 4px;
+    padding: 8px 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .powerpoint-presentation-button {
+    background-color: transparent;
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 2px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 11px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .powerpoint-presentation-button:hover {
+    background-color: rgb(255 255 255 / 20%);
+    border-color: rgb(255 255 255 / 50%);
+  }
+  
+  .powerpoint-presentation-info {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    font-size: 11px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: rgb(0 0 0 / 60%);
+    padding: 4px 8px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .bg-powerpoint-orange {
+    background-color: hsl(var(--powerpoint-orange));
+  }
+  
+  .bg-powerpoint-blue {
+    background-color: hsl(var(--powerpoint-blue));
+  }
+  
+  .bg-powerpoint-gray-25 {
+    background-color: hsl(var(--powerpoint-gray-25));
+  }
+  
+  .bg-powerpoint-gray-50 {
+    background-color: hsl(var(--powerpoint-gray-50));
+  }
+  
+  .bg-powerpoint-gray-100 {
+    background-color: hsl(var(--powerpoint-gray-100));
+  }
+  
+  .bg-powerpoint-gray-200 {
+    background-color: hsl(var(--powerpoint-gray-200));
+  }
+  
+  .border-powerpoint-orange {
+    border-color: hsl(var(--powerpoint-orange));
+  }
+  
+  .border-powerpoint-blue {
+    border-color: hsl(var(--powerpoint-blue));
+  }
+  
+  .border-powerpoint-gray-200 {
+    border-color: hsl(var(--powerpoint-gray-200));
+  }
+  
+  .border-powerpoint-gray-300 {
+    border-color: hsl(var(--powerpoint-gray-300));
+  }
+  
+  .text-powerpoint-gray-500 {
+    color: hsl(var(--powerpoint-gray-500));
+  }
+  
+  .text-powerpoint-gray-600 {
+    color: hsl(var(--powerpoint-gray-600));
+  }
+  
+  .text-powerpoint-gray-800 {
+    color: hsl(var(--powerpoint-gray-800));
+  }
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #F3F2F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #C8C6C4;
+  border-radius: 6px;
+  border: 2px solid #F3F2F1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #A19F9D;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #F3F2F1;
+}
