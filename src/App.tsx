@@ -381,7 +381,7 @@ const PowerPointClone: React.FC = () => {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-powerpoint-gray-50 font-segoe">
+    <div className="min-h-screen flex flex-col bg-powerpoint-gray-50 font-segoe">
       {/* Title Bar */}
       <div className="powerpoint-title-bar">
         <div className="flex items-center gap-2">
@@ -900,7 +900,7 @@ const PowerPointClone: React.FC = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden" style={{ height: 'calc(100vh - 152px)' }}>
         {/* Slide Thumbnails Panel */}
         <div className="powerpoint-thumbnails-panel">
           <div className="powerpoint-thumbnails-header">
