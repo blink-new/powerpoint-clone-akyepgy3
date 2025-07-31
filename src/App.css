@@ -1,0 +1,49 @@
+/* PowerPoint Clone Styles */
+.powerpoint-slide-canvas.drag-over {
+  border: 3px dashed #0078D4 !important;
+  background-color: rgb(0 120 212 / 5%) !important;
+  animation: drag-pulse 1s ease-in-out infinite;
+}
+
+.powerpoint-slide-canvas.drag-over::after {
+  content: 'Drop images here';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(0 120 212 / 90%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Image element styles */
+.slide-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Selection handles for images */
+.image-selected {
+  outline: 2px solid #0078D4;
+  outline-offset: 2px;
+}
+
+/* Drag over animation */
+@keyframes drag-pulse {
+  0%, 100% { 
+    border-color: #0078D4; 
+    background-color: rgb(0 120 212 / 5%);
+  }
+
+  50% { 
+    border-color: #106ebe; 
+    background-color: rgb(0 120 212 / 10%);
+  }
+}
